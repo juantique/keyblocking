@@ -22,20 +22,23 @@ class Tblusuario(models.Model):
 
 class Tbltipodocumento(models.Model):
     #Id_Tipo_Documento(PK)
+    Id_Tipo_Documento = models.OneToOneField(Tblusuario, null=False, blank=False, on_delete=models.CASCADE)
     Descripcion_Documento = models.CharField(max_length=35)
     
 class Tblciudad(models.Model):
     #Id_Ciudad(PK)
+    Id_Ciudad = models.OneToOneField(Tblusuario, null=False, blank=False, on_delete=models.CASCADE)
     Descripcion_Ciudad = models.CharField(max_length=35)
 
 class Tblgenero(models.Model):
     #Id_Genero(PK)
+    Id_Genero = models.OneToOneField(Tblusuario, null=False, blank=False, on_delete=models.CASCADE)
     Descripcion_Genero = models.TextField(max_length=400)
 
 class Tblpagina(models.Model):
     #Id_Pagina(PK)
     #Id_Usuario(FK)
-    Usuario = models.ForeignKey(Tblusuario, null=False, blank=False, on_delete=models.CASCADE)
+    Id_Usuario = models.ForeignKey(Tblusuario, null=False, blank=False, on_delete=models.CASCADE)
     Nombre_Pagina = models.CharField(max_length=35)
     Url_Pagina = models.CharField(max_length=35)
     Correo_Pagina = models.EmailField()

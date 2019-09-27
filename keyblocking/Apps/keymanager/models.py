@@ -35,6 +35,7 @@ class Tblgenero(models.Model):
 class Tblpagina(models.Model):
     #Id_Pagina(PK)
     #Id_Usuario(FK)
+    Usuario = models.ForeignKey(Tblusuario, null=False, blank=False, on_delete=models.CASCADE)
     Nombre_Pagina = models.CharField(max_length=35)
     Url_Pagina = models.CharField(max_length=35)
     Correo_Pagina = models.EmailField()
